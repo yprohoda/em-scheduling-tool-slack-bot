@@ -99,7 +99,7 @@ available_interviewers_blocks = [
         },
         "label": {
             "type": "plain_text",
-            "text": "Label",
+            "text": "Discipline",
             "emoji": True
         }
     },
@@ -143,7 +143,7 @@ available_interviewers_blocks = [
                         "text": "C#",
                         "emoji": True
                     },
-                    "value": "value-2"
+                    "value": "value-3"
                 },
                 {
                     "text": {
@@ -151,14 +151,32 @@ available_interviewers_blocks = [
                         "text": "C++",
                         "emoji": True
                     },
-                    "value": "value-2"
+                    "value": "value-4"
                 }
             ],
             "action_id": "static_select-action"
         },
         "label": {
             "type": "plain_text",
-            "text": "Label",
+            "text": "Technology stack",
+            "emoji": True
+        }
+    },
+    {
+        "type": "input",
+        "element": {
+            "type": "datepicker",
+            "initial_date": "2021-06-01",
+            "placeholder": {
+                "type": "plain_text",
+                "text": "Select a date",
+                "emoji": True
+            },
+            "action_id": "datepicker-action"
+        },
+        "label": {
+            "type": "plain_text",
+            "text": "Date",
             "emoji": True
         }
     }
