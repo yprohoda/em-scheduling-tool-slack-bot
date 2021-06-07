@@ -17,7 +17,7 @@ Creating apps with manifests:
 3. Paste your manifest configuration in the input field provided 
 4. Change all _"request_url"_(s) to ngrok public ip and click Next
 5. Review and verify that the configuration you entered matches the summary and click Create
-6. Install new created bot to your workstation
+6. Install new created bot to your workspace
 
 ## Config app
 1. Add [collaborators](https://app.slack.com/app-settings/T021Y2J1L2K/A022VUNSVL1/collaborators)
@@ -41,7 +41,9 @@ Double check or change Request URL to ngrok public address e.g. https://c6310bdc
 ![img.png](doc/run_app.png)
 
 ####Run this to send direct invitation to all interviewer in database
-    python slackbot.py
+    python send_notification.py
+
+#TODO запук планировщика
 
 
 ##Useful links:
