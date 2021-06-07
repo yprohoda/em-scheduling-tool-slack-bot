@@ -3,7 +3,7 @@
 from slack_sdk import WebClient
 from decouple import config
 
-from data import start_scheduling_bot
+from data_forms import start_scheduling_bot
 from helper import task_scheduler
 
 
@@ -37,7 +37,7 @@ class SlackbotSender:
 
 
 def send_message_to_all_interviewers(message):
-    from db.interviewer_table import get_all_slack_ids
+    from db.interviewers_table import get_all_slack_ids
     for interviewer in get_all_slack_ids():
         slackbot = SlackbotSender(interviewer)
         slackbot.send_block(blocks=message)

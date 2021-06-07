@@ -62,7 +62,7 @@ Double check or change Request URL to ngrok public address e.g. https://c6310bdc
 * data_forms.py - block forms for slack
 * helper.py - helper methods and task scheduler
 * manifest.json - config file to create a new bot on a new workspace
-* slackbot - send invitation to interviewers in sDM, manually or by task scheduler
+* send_notification - sends direct invitation to interviewers (manually or by task scheduler)
 
 
 ##App features
