@@ -1,0 +1,55 @@
+{
+    "_metadata": {
+        "major_version": 1,
+        "minor_version": 1
+    },
+    "display_information": {
+        "name": "Scheduling-bot",
+        "description": "em-scheduling-tool-slack-bot project",
+        "background_color": "#3250ab"
+    },
+    "features": {
+        "app_home": {
+            "home_tab_enabled": true,
+            "messages_tab_enabled": true,
+            "messages_tab_read_only_enabled": false
+        },
+        "bot_user": {
+            "display_name": "Scheduling-bot",
+            "always_online": true
+        }
+    },
+    "oauth_config": {
+        "scopes": {
+            "bot": [
+                "chat:write",
+                "users:write",
+                "channels:read",
+                "channels:history",
+                "groups:history",
+                "im:history",
+                "mpim:history"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "request_url": "https://c6310bdcdd2b.ngrok.io/slack/events",
+            "bot_events": [
+                "app_home_opened",
+                "channel_rename",
+                "message.channels",
+                "message.groups",
+                "message.im",
+                "message.mpim"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://c6310bdcdd2b.ngrok.io/slack/events"
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "is_hosted": false
+    }
+}
