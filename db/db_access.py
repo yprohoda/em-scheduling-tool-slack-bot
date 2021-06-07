@@ -8,7 +8,7 @@ dynamodb = boto3.resource('dynamodb',
                           )
 
 
-def create_table(table_name, column1, column2):
+def create_table(table_name, column1, column2, type1='N', type2='N'):
     """
     Create table in Dynamo DB
     :param table_name: table created in DB
@@ -28,11 +28,11 @@ def create_table(table_name, column1, column2):
         AttributeDefinitions=[
             {
                 'AttributeName': column1,
-                'AttributeType': 'N'
+                'AttributeType': type1
             },
             {
                 'AttributeName': column2,
-                'AttributeType': 'N'
+                'AttributeType': type2
             },
         ],
         ProvisionedThroughput={
@@ -46,7 +46,4 @@ def create_table(table_name, column1, column2):
 
 
 if __name__ == '__main__':
-    #create_table('timeslots_confirmed', 'interviwer_id', 'timeslot_id')
-    create_table(table_name='timeslots_confirmed',
-                 column1='interviewer_id',
-                 column2='timeslot_id')
+    pass

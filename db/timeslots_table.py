@@ -1,7 +1,9 @@
-from db.db_access import dynamodb
+from db.db_access import dynamodb, create_table
 from helper import time_date_now
 from botocore.exceptions import ClientError
 from boto3.dynamodb.conditions import Key
+
+table = dynamodb.Table('timeslots')
 
 
 def create_record_timeslots(id, date, time_from, time_to):
@@ -21,8 +23,8 @@ def create_record_timeslots(id, date, time_from, time_to):
         }
     )
 
+
 def get_items_from_table_by_id(id):
-    table = dynamodb.Table('timeslots')
     try:
         response = table.query(
             KeyConditionExpression=Key('id').eq(id)
@@ -34,7 +36,6 @@ def get_items_from_table_by_id(id):
 
 
 def get_all_items():
-    table = dynamodb.Table('timeslots')
     response = table.scan()
     return response['Items']
 
@@ -44,12 +45,11 @@ def get_all_timeslots():
     Get all timeslots from table
     :return: list of date + time
     """
-    timeslots = get_all_items()
-    return [{'id': str(i['id']), 'date': i['date'] + ' ' + i['time_from'] + ' - ' + i['time_to']} for i in timeslots]
+    return [{'id': str(i['id']), 'date': i['date'] + ' ' + i['time_from'] + ' - ' + i['time_to']} for i in get_all_items()]
 
 
 def prepare_timeslot_data_for_slack():
-    from data import checkboxes_with_timeslots
+    from data_forms import checkboxes_with_timeslots
     return checkboxes_with_timeslots(get_all_timeslots())
 
 
@@ -65,18 +65,22 @@ def get_real_timeslots_by_timeslots_id(timeslots_ids: list):
     """
     real_ts_list = []
     for id_ in timeslots_ids:
-        real_ts_list += [i['date'] + ' ' + i['time_from'] + '-' + i['time_to'] for i in get_all_items() if i['id'] == id_]
+        real_ts_list += [i['date'] + ' ' + i['time_from'] + '-' + i['time_to'] for i in get_all_items() if
+                         i['id'] == id_]
     return real_ts_list
 
 
+def get_timeslots_ids_by_date(date):
+    return [int(i['id']) for i in get_all_items() if i['date'] == date]
+
+
+def create_timeslots_table():
+    create_table(table_name='timeslots',
+                 column1='id',
+                 column2='date',
+                 type1='N',
+                 type2='S')
+
+
 if __name__ == '__main__':
-    # pprint(get_all_timeslots())
-    # for i in range (5, 11):
-    #     create_record_timeslots(i, '2021-05-24', '11-00', '12-00')
-    # timeslots = get_items_from_table_by_id(2)
-    # if timeslots:
-    #     pprint(timeslots, sort_dicts=False)
-    # pprint(get_all_timeslots())
-    # pprint(prepare_timeslot_data_for_slack())
-    # print(get_real_timeslots_by_timeslots_id([1,5,6]))
-    print(get_real_timeslot_by_timeslot_id(1))
+    create_timeslots_table()

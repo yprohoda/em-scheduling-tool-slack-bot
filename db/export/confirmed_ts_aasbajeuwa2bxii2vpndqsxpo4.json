@@ -1,0 +1,5 @@
+{"Item":{"datetime":{"S":"2021-06-07 13:00:12.694302"},"interviewer_id":{"N":"2"},"slack_id":{"S":"U022RDX85CZ"},"timeslot_id":{"N":"1"},"timestamp":{"S":"1623060012"}}}
+{"Item":{"datetime":{"S":"2021-06-07 12:58:38.472029"},"interviewer_id":{"N":"1"},"slack_id":{"S":"U0229P0N4SH"},"timeslot_id":{"N":"9"},"timestamp":{"S":"1623059918"}}}
+{"Item":{"datetime":{"S":"2021-06-07 13:00:12.784866"},"interviewer_id":{"N":"2"},"slack_id":{"S":"U022RDX85CZ"},"timeslot_id":{"N":"2"},"timestamp":{"S":"1623060012"}}}
+{"Item":{"datetime":{"S":"2021-06-07 12:58:38.423462"},"interviewer_id":{"N":"1"},"slack_id":{"S":"U0229P0N4SH"},"timeslot_id":{"N":"10"},"timestamp":{"S":"1623059918"}}}
+{"Item":{"datetime":{"S":"2021-06-07 13:00:12.739637"},"interviewer_id":{"N":"2"},"slack_id":{"S":"U022RDX85CZ"},"timeslot_id":{"N":"3"},"timestamp":{"S":"1623060012"}}}

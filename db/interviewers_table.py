@@ -1,6 +1,4 @@
-from pprint import pprint
-
-from db.db_access import dynamodb
+from db.db_access import dynamodb, create_table
 
 table = dynamodb.Table('interviewers')
 
@@ -36,8 +34,13 @@ def get_info_by_interv_id(interv_id):
     return [(i['slack_name'], i['full_name']) for i in get_all_interviewers() if i['id'] == interv_id][0]
 
 
+def create_interviewers_table():
+    create_table(table_name='interviewers',
+                 column1='id',
+                 column2='slack_id',
+                 type1='N',
+                 type2='S')
+
+
 if __name__ == '__main__':
-    # pprint(get_all_interviewers())
-    # pprint(get_discipline_by_interviewer_id(1))
-    # print(get_inter_id_by_descipline('Dev', 'Python'))
-    print(get_info_by_interv_id(1))
+    create_interviewers_table()

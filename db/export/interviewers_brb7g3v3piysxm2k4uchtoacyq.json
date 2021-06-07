@@ -1,0 +1,2 @@
+{"Item":{"discipline":{"S":"Dev"},"full_name":{"S":"Evg Pro"},"grade":{"S":"T2"},"id":{"N":"2"},"interview_language":{"S":"EN, UA, RU"},"location":{"S":"Kharkiv"},"slack_id":{"S":"U022RDX85CZ"},"slack_name":{"S":"@evgpro"},"technology_stack":{"S":"Python, C#"}}}
+{"Item":{"discipline":{"S":"QA"},"full_name":{"S":"Ivan Ivanov"},"grade":{"S":"T2"},"id":{"N":"1"},"interview_language":{"S":"EN, UA, RU"},"location":{"S":"Kharkiv"},"slack_id":{"S":"U0229P0N4SH"},"slack_name":{"S":"@ivaniv"},"technology_stack":{"S":"Python"}}}

@@ -1,6 +1,4 @@
-from pprint import pprint
-
-from db.db_access import dynamodb
+from db.db_access import dynamodb, create_table
 from helper import time_date_now
 
 table = dynamodb.Table('timeslots_confirmed')
@@ -31,14 +29,7 @@ def get_all_available_interviews():
     return [(int(i['interviewer_id']), int(i['timeslot_id'])) for i in get_all_items()]
 
 
-# def get_confirmed_inter_id_by_inter_id(inter_ids: list):
-#     list_of_confirmed_timeslots_ids = []
-#     for inter_id in inter_ids:
-#         list_of_confirmed_timeslots_ids += [(int(i['interviewer_id']), int(i['timeslot_id'])) for i in get_all_items() if
-#                                             i['interviewer_id'] == inter_id]
-#     return list_of_confirmed_timeslots_ids
-
-def get_avail_intervs_by_interviewer_id(inter_ids: list):
+def get_avail_interv_by_interv_id(inter_ids: list):
     """
     Get confirmed timeslots ids for interviewers id
     :param inter_ids: list
@@ -50,9 +41,13 @@ def get_avail_intervs_by_interviewer_id(inter_ids: list):
     return list_of_confirmed_timeslots_ids
 
 
+def create_timeslots_confirmed_table():
+    create_table(table_name='timeslots_confirmed',
+                 column1='interviewer_id',
+                 column2='timeslot_id',
+                 type1='N',
+                 type2='N')
+
+
 if __name__ == '__main__':
-    # create_record_in_timeslots_confirmed(1, 1)
-    # pprint(get_all_available_interviews())
-    # print(get_confirmed_timeslots_ids_by_interviewer_id(2))
-    print(get_avail_intervs_by_interviewer_id([1,2,3]))
-    # print(get_confirmed_inter_id_by_inter_id([1,2,3]))
+    create_timeslots_confirmed_table()
