@@ -6,7 +6,8 @@
 3. Install requirement
 `pip install requrements.txt`
    
-4. Install [ngrok server](https://ngrok.com/) and run it on permanent basis to have public address instead of local.
+4. Install [ngrok server](https://ngrok.com/)
+5. Run CLI command: `ngrok http 3000` on permanent basis to have public address instead of local.
 ![img.png](doc/run_ngrok.png)
    
 
@@ -14,7 +15,7 @@
 Creating apps with manifests:
 1. Click Create New App: https://api.slack.com/apps?new_app=1
 2. Pick a development workspace and click Next
-3. Paste your manifest configuration in the input field provided 
+3. Paste your manifest configuration (manifest.json) in the input field provided 
 4. Change all _"request_url"_(s) to ngrok public ip and click Next
 5. Review and verify that the configuration you entered matches the summary and click Create
 6. Install new created bot to your workspace
